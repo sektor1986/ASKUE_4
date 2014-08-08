@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{43a4fd95-2063-4d7f-88fb-30d35db8cb75}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>ASKUE_VZEP.exe</DCC_DependencyCheckOutputName>
+    <MainSource>ASKUE_VZEP.dpr</MainSource>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+    <DCC_ExeOutput>Release</DCC_ExeOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">4</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">48</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1049</VersionInfo><VersionInfo Name="CodePage">1251</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName">VZEP</VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">4.0.0.48</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename">ASKUE</VersionInfoKeys><VersionInfoKeys Name="ProductName">ASKUE</VersionInfoKeys><VersionInfoKeys Name="ProductVersion">4.0</VersionInfoKeys><VersionInfoKeys Name="Comments">Программа для работы с автоматической системой контроля и учёта электроэнергии ОАО "ВЗЭП"</VersionInfoKeys><VersionInfoKeys Name="LastCompiledTime">20.06.2013 9:48:14</VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">ASKUE_VZEP.dpr</Source></Source><Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="C:\Documents and Settings\All Users\Документы\RAD Studio\5.0\Bpl\ZMstr190D7.bpl">ZipMaster 1.9.0</Excluded_Packages>
+      <Excluded_Packages Name="C:\Documents and Settings\All Users\Документы\RAD Studio\5.0\Bpl\dclfsTee7.bpl">FastScript 1.9 Tee Components</Excluded_Packages>
+    </Excluded_Packages></Delphi.Personality><ModelSupport>False</ModelSupport></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="ASKUE_VZEP.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="UAbout.pas">
+      <Form>FormAbout</Form>
+    </DCCReference>
+    <DCCReference Include="UAddNewSchetchik.pas">
+      <Form>FormAddNewSchetchik</Form>
+    </DCCReference>
+    <DCCReference Include="UAutoRead.pas">
+      <Form>Form_AutoRead</Form>
+    </DCCReference>
+    <DCCReference Include="UAutoUpload.pas">
+      <Form>Form_AutoUpload</Form>
+    </DCCReference>
+    <DCCReference Include="UAutoUploadTeplo.pas">
+      <Form>Form_AutoUploadTeplo</Form>
+    </DCCReference>
+    <DCCReference Include="UBackUp.pas">
+      <Form>FormBackUp</Form>
+    </DCCReference>
+    <DCCReference Include="UBackUpThread.pas" />
+    <DCCReference Include="UBook.pas">
+      <Form>FormBook</Form>
+    </DCCReference>
+    <DCCReference Include="UCheckUser.pas">
+      <Form>FormCheckUser</Form>
+    </DCCReference>
+    <DCCReference Include="UDataVrem.pas">
+      <Form>FormDataVrem</Form>
+    </DCCReference>
+    <DCCReference Include="UDelCounter.pas">
+      <Form>FormDelCounter</Form>
+    </DCCReference>
+    <DCCReference Include="UDeviceThread.pas" />
+    <DCCReference Include="Udm1.pas">
+      <Form>dm1</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="Udm2.pas">
+      <Form>dm2</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UdmExport_Import.pas">
+      <Form>dmExport_Import</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UdmPrint.pas">
+      <Form>dmPrint</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UEditPassCounter.pas">
+      <Form>Form_EditPassCounter</Form>
+    </DCCReference>
+    <DCCReference Include="UEditTarPerehod.pas">
+      <Form>Form_EditTarPerehod</Form>
+    </DCCReference>
+    <DCCReference Include="UEditVArTar.pas">
+      <Form>Form_EditVarTar</Form>
+    </DCCReference>
+    <DCCReference Include="UExport.pas">
+      <Form>FormExport</Form>
+    </DCCReference>
+    <DCCReference Include="UExport_TEM_104.pas">
+      <Form>Form_Export_TEM_104</Form>
+    </DCCReference>
+    <DCCReference Include="UFormirOprChtenie.pas">
+      <Form>FormFormirOprChtenie</Form>
+    </DCCReference>
+    <DCCReference Include="UFormOpr.pas">
+      <Form>FormOpr</Form>
+    </DCCReference>
+    <DCCReference Include="UFrameNa1Chislo.pas">
+      <Form>frameNa1Chislo</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UFrameOtklPodkl.pas">
+      <Form>farmeOtklPodkl</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UFramePomesPotr.pas">
+      <Form>framePomesPotr</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UFramePower.pas">
+      <Form>FramePower</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UFrameTarNak.pas">
+      <Form>frameTarNak</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UFrameTarPerehodi.pas">
+      <Form>FrameTarPerehodi</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UFrameVarTar.pas">
+      <Form>frameVartar</Form>
+      <DesignClass>TFrame</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UFunction.pas" />
+    <DCCReference Include="UGPRS.pas">
+      <Form>dmGPRS</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="UHistory.pas">
+      <Form>FormHistory</Form>
+    </DCCReference>
+    <DCCReference Include="UModem.pas" />
+    <DCCReference Include="UMySQL.pas">
+      <Form>Form_MySQL</Form>
+    </DCCReference>
+    <DCCReference Include="UNa1Chislo.pas">
+      <Form>FormNa1Chislo</Form>
+    </DCCReference>
+    <DCCReference Include="UNaznVarTar.pas">
+      <Form>FormNaznVarTar</Form>
+    </DCCReference>
+    <DCCReference Include="Unit1.pas">
+      <Form>Form1</Form>
+    </DCCReference>
+    <DCCReference Include="UOptions.pas">
+      <Form>FormOptions</Form>
+    </DCCReference>
+    <DCCReference Include="UOtklPodkl.pas">
+      <Form>FormOtklPodkl</Form>
+    </DCCReference>
+    <DCCReference Include="UPassKoncSchit.pas">
+      <Form>FormPassKonsSchit</Form>
+    </DCCReference>
+    <DCCReference Include="UPassSchit.pas">
+      <Form>FormPassSchit</Form>
+    </DCCReference>
+    <DCCReference Include="UPassword.pas">
+      <Form>FormPassword</Form>
+    </DCCReference>
+    <DCCReference Include="UPereimAdr.pas">
+      <Form>FormPereimAdr</Form>
+    </DCCReference>
+    <DCCReference Include="UPereimRas.pas">
+      <Form>FormPereimRas</Form>
+    </DCCReference>
+    <DCCReference Include="UPeremSchetchikaVDrRas.pas">
+      <Form>FormPeremSchetchikaVDrRas</Form>
+    </DCCReference>
+    <DCCReference Include="UPomesPotr.pas">
+      <Form>FormPomesPotr</Form>
+    </DCCReference>
+    <DCCReference Include="UPower.pas">
+      <Form>FormPower</Form>
+    </DCCReference>
+    <DCCReference Include="UPrint.pas">
+      <Form>FormPrint</Form>
+    </DCCReference>
+    <DCCReference Include="UProcedure.pas" />
+    <DCCReference Include="UProfil.pas">
+      <Form>FormProfil</Form>
+    </DCCReference>
+    <DCCReference Include="UProgress.pas">
+      <Form>FormProgress</Form>
+    </DCCReference>
+    <DCCReference Include="URegistrNomer.pas">
+      <Form>FormRegistrNomer</Form>
+    </DCCReference>
+    <DCCReference Include="URestore.pas">
+      <Form>FormRestore</Form>
+    </DCCReference>
+    <DCCReference Include="USamSchetchika.pas">
+      <Form>FormSamSchetchika</Form>
+    </DCCReference>
+    <DCCReference Include="USaveData.pas" />
+    <DCCReference Include="USpisokNeschit.pas">
+      <Form>FormSpisokNeschit</Form>
+    </DCCReference>
+    <DCCReference Include="UTarNak.pas">
+      <Form>FormTarNak</Form>
+    </DCCReference>
+    <DCCReference Include="UTarPerehodi.pas">
+      <Form>FormTarPerehodi</Form>
+    </DCCReference>
+    <DCCReference Include="UTEM_104.pas">
+      <Form>FormTEM_104</Form>
+    </DCCReference>
+    <DCCReference Include="UTEM_104_Stat.pas">
+      <Form>FormTEM_104_Stat</Form>
+    </DCCReference>
+    <DCCReference Include="UTypes.pas" />
+    <DCCReference Include="UVarTar.pas">
+      <Form>FormVarTar</Form>
+    </DCCReference>
+    <DCCReference Include="UView.pas">
+      <Form>FormView</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>

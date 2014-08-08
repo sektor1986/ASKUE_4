@@ -1,0 +1,64 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{d8c3b899-9065-4a9c-9ff8-f70c830aae84}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="ASKUE_VZEP.dproj" />
+    <Projects Include="DLL\balance\excelDLL.dproj" />
+    <Projects Include="DLL\export\Dllimport.dproj" />
+    <Projects Include="DLL\formirBuf\formirBuf.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="ASKUE_VZEP">
+    <MSBuild Projects="ASKUE_VZEP.dproj" Targets="" />
+  </Target>
+  <Target Name="ASKUE_VZEP:Clean">
+    <MSBuild Projects="ASKUE_VZEP.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="ASKUE_VZEP:Make">
+    <MSBuild Projects="ASKUE_VZEP.dproj" Targets="Make" />
+  </Target>
+  <Target Name="excelDLL">
+    <MSBuild Projects="DLL\balance\excelDLL.dproj" Targets="" />
+  </Target>
+  <Target Name="excelDLL:Clean">
+    <MSBuild Projects="DLL\balance\excelDLL.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="excelDLL:Make">
+    <MSBuild Projects="DLL\balance\excelDLL.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Dllimport">
+    <MSBuild Projects="DLL\export\Dllimport.dproj" Targets="" />
+  </Target>
+  <Target Name="Dllimport:Clean">
+    <MSBuild Projects="DLL\export\Dllimport.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="Dllimport:Make">
+    <MSBuild Projects="DLL\export\Dllimport.dproj" Targets="Make" />
+  </Target>
+  <Target Name="formirBuf">
+    <MSBuild Projects="DLL\formirBuf\formirBuf.dproj" Targets="" />
+  </Target>
+  <Target Name="formirBuf:Clean">
+    <MSBuild Projects="DLL\formirBuf\formirBuf.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="formirBuf:Make">
+    <MSBuild Projects="DLL\formirBuf\formirBuf.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="ASKUE_VZEP;excelDLL;Dllimport;formirBuf" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="ASKUE_VZEP:Clean;excelDLL:Clean;Dllimport:Clean;formirBuf:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="ASKUE_VZEP:Make;excelDLL:Make;Dllimport:Make;formirBuf:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

@@ -1,0 +1,26 @@
+
+===== ErrorHandler FIBErrorEvent =====
+Sender.ClassName = TFIBQuery
+Sender.Name = SelectQuery
+ConstraintName = 
+ExceptionNumber = -1
+Lasterror = keOther
+SQLCode = -206
+IBErrorCode = 335544569
+Message = dm1.tmp_korrekt.SelectQuery:
+Column does not belong to referenced table.
+Dynamic SQL Error.
+SQL error code = -206.
+Column unknown.
+PASS.
+At line 30, column 1.
+
+IBMessage = Dynamic SQL Error.
+SQL error code = -206.
+Column unknown.
+PASS.
+At line 30, column 1.
+
+SQLMessage = Column does not belong to referenced table.
+
+KindIBError = keOther
