@@ -44,7 +44,7 @@ var
 
 implementation
 
-uses Udm1, Udm2, UPassKoncSchit, UDeviceThread, Unit1, UFunction;
+uses Udm1, Udm2, UPassKoncSchit, UDeviceThread, Unit1, UFunction, UOptions;
 
 {$R *.dfm}
 
@@ -1202,6 +1202,8 @@ begin
 
     end;
     Form1.Port.flagSchitivatel := (Form1.sBitBtn51.Tag = 4);
+
+    Form1.Port.flagSecondRead := FormOptions.schkSecondRead.Checked;
 
     FormirParamOpr;
     if FormirMassiva then

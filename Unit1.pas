@@ -177,7 +177,6 @@ type
     DBGridEh13: TDBGridEh;
     DBGridEh1: TDBGridEh;
     sPanel5: TsPanel;
-    sCheckBox13: TsCheckBox;
     sLabel2: TsLabel;
     sPanel6: TsPanel;
     sPanel7: TsPanel;
@@ -438,6 +437,10 @@ type
     jvpdrs1: TJvIPAddress;
     jvpdrs2: TJvIPAddress;
     lbl3: TsLabel;
+    btn4: TsSpeedButton;
+    btn5: TsSpeedButton;
+    btn6: TsSpeedButton;
+    btn7: TsSpeedButton;
     procedure sBitBtn1Click(Sender: TObject);
     procedure sBitBtn10Click(Sender: TObject);
     procedure sBitBtn30Click(Sender: TObject);
@@ -509,7 +512,6 @@ type
     procedure ActionDelSchBalExecute(Sender: TObject);
     procedure ActionDelVseBalExecute(Sender: TObject);
     procedure ActionDannieSoSchetchikovExecute(Sender: TObject);
-    procedure sCheckBox13Click(Sender: TObject);
     procedure FindClick(Sender: TObject);
     procedure sEdit1KeyPress(Sender: TObject; var Key: Char);
     procedure sBitBtn54Click(Sender: TObject);
@@ -616,7 +618,11 @@ type
     procedure sDBRadioGroup1Exit(Sender: TObject);
     procedure sBitBtn67Click(Sender: TObject);
     procedure jvpdrs2Exit(Sender: TObject);
-      //    procedure DBGridEh1CellClick(Column: TColumnEh);
+    procedure btn5Click(Sender: TObject);
+    procedure btn4Click(Sender: TObject);
+    procedure btn6Click(Sender: TObject);
+    procedure btn7Click(Sender: TObject);
+    //    procedure DBGridEh1CellClick(Column: TColumnEh);
   private
     procedure LoadOptions;
     procedure ImportStructure;
@@ -943,15 +949,14 @@ begin
       addresmainLONGITUDE.AsFloat := edt5.Value;
       addresmainREPAIR.AsInteger := 0;
 
-
       case sRadioGroup1.ItemIndex of
-      1: addresmainREZHIM.AsInteger := 1;
-      0: addresmainREZHIM.AsInteger := 0;
+        1: addresmainREZHIM.AsInteger := 1;
+        0: addresmainREZHIM.AsInteger := 0;
       else
       end;
 
-     // addresmainBALANS.AsInteger := 0;
-      //Добавление файлов информации о системе
+      // addresmainBALANS.AsInteger := 0;
+       //Добавление файлов информации о системе
       if (Trim(edt1.Text) <> '') and (FileExists(edt1.Text)) then
       begin
         TBlobField(addresmain.FieldByName('SCHEMA')).LoadFromFile(edt1.Text);
@@ -1253,8 +1258,7 @@ begin
   begin
     if dmExport_Import.CDS_addresmain.FieldByName('chec').AsInteger = 1 then
     begin
-      if dm1.addresmain.Locate('ADDR', dmExport_Import.CDS_addresmain.FieldByName('ADDR').AsString, [loCaseInsensitive])
-        then
+      if dm1.addresmain.Locate('ADDR', dmExport_Import.CDS_addresmain.FieldByName('ADDR').AsString, [loCaseInsensitive]) then
         case Application.MessageBox('ИмпортируемыЙ адрес уже существует.' + Chr(13) + 'Заменить - Да' +
           Chr(13) + 'Пропустить - Нет' +
           Chr(13) + 'Прервать - Отмена ', 'Предупреждение!!!', MB_YESNOCANCEL + MB_ICONINFORMATION) of
@@ -1739,14 +1743,14 @@ begin
 
   jvpdrs2.Text := dm1.koncenIP_ADDRES.AsString;
 
-   if dm1.addresmainREPAIR.AsInteger =1 then
-    begin
-     sCheckBox12.Checked := True;
-    end
+  if dm1.addresmainREPAIR.AsInteger = 1 then
+  begin
+    sCheckBox12.Checked := True;
+  end
   else
-    begin
-      sCheckBox12.Checked := False;
-    end;
+  begin
+    sCheckBox12.Checked := False;
+  end;
 
   nb.PageIndex := 2;
 end;
@@ -1915,13 +1919,13 @@ var
   IniFile: TIniFile;
 begin
   begin
-  IniFile := TIniFile.Create(NahCataloga(ParamStr(0)) + 'options.ini');
+    IniFile := TIniFile.Create(NahCataloga(ParamStr(0)) + 'options.ini');
 
-  sEdit15.Text := IniFile.ReadString('GPRS', 'APN', '');
-  sEdit23.Text := IniFile.ReadString('GPRS', 'Login', '');
-  sEdit24.Text := IniFile.ReadString('GPRS', 'Password', '');
+    sEdit15.Text := IniFile.ReadString('GPRS', 'APN', '');
+    sEdit23.Text := IniFile.ReadString('GPRS', 'Login', '');
+    sEdit24.Text := IniFile.ReadString('GPRS', 'Password', '');
 
-  IniFile.Free;
+    IniFile.Free;
   end;
 
   sCheckBox3.Checked := True;
@@ -2223,9 +2227,104 @@ begin
     edt3.Text := dlg1.FileName;
 end;
 
+procedure TForm1.btn4Click(Sender: TObject);
+var
+  sql: TpFIBQuery;
+begin
+  if not dm1.addresmain.IsEmpty then
+  begin
+    sql := TpFIBQuery.Create(nil);
+
+    with sql do
+      try
+        Database := dm1.database;
+        Transaction := dm1.database.DefaultUpdateTransaction;
+        dm1.updateTransact.StartTransaction;
+        SQL.Text := 'UPDATE addresmain set chec = 1 where REZHIM = 1 and rez =' + dm1.townINC.AsString;
+        ExecQuery;
+      finally
+        Free;
+      end;
+
+    dm1.updateTransact.Commit;
+    dm1.addresmain.ReopenLocate('inc');
+  end;
+
+end;
+
+procedure TForm1.btn5Click(Sender: TObject);
+var
+  sql: TpFIBQuery;
+begin
+  if not dm1.addresmain.IsEmpty then
+  begin
+    sql := TpFIBQuery.Create(nil);
+
+    with sql do
+      try
+        Database := dm1.database;
+        Transaction := dm1.database.DefaultUpdateTransaction;
+        dm1.updateTransact.StartTransaction;
+        SQL.Text := 'UPDATE addresmain set chec = 1 where REZHIM = 0 and rez =' + dm1.townINC.AsString;
+        ExecQuery;
+      finally
+        Free;
+      end;
+
+    dm1.updateTransact.Commit;
+    dm1.addresmain.ReopenLocate('inc');
+  end;
+end;
+
+procedure TForm1.btn6Click(Sender: TObject);
+var
+  sql: TpFIBQuery;
+begin
+  if not dm1.addresmain.IsEmpty then
+  begin
+    sql := TpFIBQuery.Create(nil);
+
+    with sql do
+      try
+        Database := dm1.database;
+        Transaction := dm1.database.DefaultUpdateTransaction;
+        dm1.updateTransact.StartTransaction;
+        SQL.Text := 'UPDATE addresmain set chec = 1 where rez =' + dm1.townINC.AsString;
+        ExecQuery;
+      finally
+        Free;
+      end;
+    dm1.updateTransact.Commit;
+    dm1.addresmain.ReopenLocate('inc');
+  end;
+end;
+
+procedure TForm1.btn7Click(Sender: TObject);
+var
+  sql: TpFIBQuery;
+begin
+  if not dm1.addresmain.IsEmpty then
+  begin
+    sql := TpFIBQuery.Create(nil);
+
+    with sql do
+      try
+        Database := dm1.database;
+        Transaction := dm1.database.DefaultUpdateTransaction;
+        dm1.updateTransact.StartTransaction;
+        SQL.Text := 'UPDATE addresmain set chec = 0 where rez =' + dm1.townINC.AsString;
+        ExecQuery;
+      finally
+        Free;
+      end;
+    dm1.updateTransact.Commit;
+    dm1.addresmain.ReopenLocate('inc');
+  end;
+end;
+
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-    dm1.addresmain.ReopenLocate('inc');
+  dm1.addresmain.ReopenLocate('inc');
 end;
 
 procedure TForm1.CloseDataBase;
@@ -2268,9 +2367,9 @@ end;
 
 procedure TForm1.jvpdrs2Exit(Sender: TObject);
 begin
-      dm1.koncen.Edit;
-      dm1.koncenIP_ADDRES.AsString := jvpdrs2.Text;
-      dm1.koncen.Post;
+  dm1.koncen.Edit;
+  dm1.koncenIP_ADDRES.AsString := jvpdrs2.Text;
+  dm1.koncen.Post;
 end;
 
 procedure TForm1.DBGridEh11GetCellParams(Sender: TObject; Column: TColumnEh;
@@ -2355,7 +2454,7 @@ begin
   end
   else
     sSpeedButton2Click(self);
-  end;
+end;
 
 procedure TForm1.DBGridEh1Exit(Sender: TObject);
 begin
@@ -2367,15 +2466,28 @@ procedure TForm1.DBGridEh1GetCellParams(Sender: TObject; Column: TColumnEh;
   AFont: TFont; var Background: TColor; State: TGridDrawState);
 begin
   if dm1.addresmain.FieldByName('REPAIR').AsInteger = 1 then
-    begin
+  begin
     BackGround := clRed;
     AFont.Color := clWhite;
-    end
+  end
   else
-    begin
+  begin
     BackGround := clWhite;
     AFont.Color := clBlack;
-    end;
+  end;
+
+  if dm1.addresmain.FieldByName('REZHIM').AsInteger = 0 then
+  begin
+    AFont.Color := clBlue;
+  end
+  else if dm1.addresmain.FieldByName('REZHIM').AsInteger = 1 then
+  begin
+    AFont.Color := clGreen;
+  end
+  else
+  begin
+    AFont.Color := clBlack;
+  end;
 end;
 
 procedure TForm1.DBGridEh1KeyPress(Sender: TObject; var Key: Char);
@@ -2569,7 +2681,7 @@ end;
 
 procedure TForm1.N1041Click(Sender: TObject);
 begin
-  Form_Export_TEM_104.ShowModal;    
+  Form_Export_TEM_104.ShowModal;
 end;
 
 procedure TForm1.N10Click(Sender: TObject);
@@ -3253,35 +3365,34 @@ begin
           sPanel36.Visible := false;
           sBitBtn52.Visible := false;
         end
+        else if sBitBtn51.Tag = 3 then
+        begin
+          sCheckBox4.Visible := false;
+          sCheckBox5.Visible := false;
+          sCheckBox6.Visible := false;
+          sCheckBox7.Visible := false;
+          sCheckBox8.Visible := false;
+          sCheckBox9.Visible := false;
+          sCheckBox10.Visible := false;
+          sCheckBox14.Visible := false;
+          sGroupBox9.Visible := false;
+          sPanel36.Visible := false;
+          sBitBtn52.Visible := false;
+        end
         else
-            if sBitBtn51.Tag = 3 then
-            begin
-             sCheckBox4.Visible := false;
-             sCheckBox5.Visible := false;
-             sCheckBox6.Visible := false;
-             sCheckBox7.Visible := false;
-             sCheckBox8.Visible := false;
-             sCheckBox9.Visible := false;
-             sCheckBox10.Visible := false;
-             sCheckBox14.Visible := false;
-             sGroupBox9.Visible := false;
-             sPanel36.Visible := false;
-             sBitBtn52.Visible := false;
-            end
-            else
-            begin
-              sCheckBox4.Visible := true;
-              sCheckBox5.Visible := true;
-              sCheckBox6.Visible := true;
-              sCheckBox7.Visible := true;
-              sCheckBox8.Visible := true;
-              sCheckBox9.Visible := true;
-              sCheckBox10.Visible := true;
-              sCheckBox14.Visible := false;
-              sGroupBox9.Visible := false;
-              sPanel36.Visible := true;
-              sBitBtn52.Visible := true;
-            end;
+        begin
+          sCheckBox4.Visible := true;
+          sCheckBox5.Visible := true;
+          sCheckBox6.Visible := true;
+          sCheckBox7.Visible := true;
+          sCheckBox8.Visible := true;
+          sCheckBox9.Visible := true;
+          sCheckBox10.Visible := true;
+          sCheckBox14.Visible := false;
+          sGroupBox9.Visible := false;
+          sPanel36.Visible := true;
+          sBitBtn52.Visible := true;
+        end;
       end;
   end;
 end;
@@ -3401,6 +3512,8 @@ begin
   IniFile.WriteBool('Options', 'PoleLatitude', FormOptions.sCheckBox9.Checked);
   IniFile.WriteBool('Options', 'PoleLongitude', FormOptions.sCheckBox9.Checked);
   IniFile.WriteBool('Options', 'PoleBalans', FormOptions.sCheckBox10.Checked);
+  IniFile.WriteBool('Options', 'SecondRead', FormOptions.schkSecondRead.Checked);
+
   IniFile.WriteInteger('Options', 'IndexSkin', FormOptions.sComboBox1.ItemIndex);
   IniFile.WriteString('Options', 'BaudRateConcentr1', FormOptions.sComboBox3.Text);
   IniFile.WriteString('Options', 'BaudRateConcentr2', FormOptions.sComboBox8.Text);
@@ -3410,7 +3523,6 @@ begin
   IniFile.WriteInteger('Options', 'Key_town', Integer(DBLookupComboboxEh1.KeyValue));
   IniFile.WriteInteger('Options', 'server', FormOptions.sRadioGroup1.ItemIndex);
   IniFile.WriteString('Options', 'Port_TCP/IP', FormOptions.sEdit4.Text);
-  IniFile.WriteInteger('Options', 'rezhim', FormOptions.sRadioGroup3.ItemIndex);
 
   IniFile.WriteBool('DannieObmena', 'VarTar', sCheckBox3.Checked);
   IniFile.WriteBool('DannieObmena', 'TarNac', sCheckBox4.Checked);
@@ -3948,7 +4060,7 @@ end;
 
 procedure TForm1.sBitBtn67Click(Sender: TObject);
 begin
-   FormBook.ShowModal;
+  FormBook.ShowModal;
 end;
 
 procedure TForm1.sBitBtn7Click(Sender: TObject);
@@ -3992,55 +4104,17 @@ end;
 procedure TForm1.sCheckBox12Exit(Sender: TObject);
 begin
   if sCheckBox12.Checked = True then
-    begin
-      dm1.addresmain.Edit;
-      dm1.addresmainREPAIR.AsInteger := 1;
-      dm1.addresmain.Post;
-    end
-  else
-    begin
-      dm1.addresmain.Edit;
-      dm1.addresmainREPAIR.AsInteger := 0;
-      dm1.addresmain.Post;
-    end;
-end;
-
-procedure TForm1.sCheckBox13Click(Sender: TObject); //Процедура выделение всех адресов в городе
-var
-  sql: TpFIBQuery;
-begin
-  if not dm1.addresmain.IsEmpty then
   begin
-    sql := TpFIBQuery.Create(nil);
-    if sCheckBox13.Checked then
-      with sql do
-        try
-          Database := dm1.database;
-          Transaction := dm1.database.DefaultUpdateTransaction;
-          dm1.updateTransact.StartTransaction;
-          SQL.Text := 'UPDATE addresmain set chec = 1 where rez =' + dm1.townINC.AsString;
-          ExecQuery;
-        finally
-          Free;
-        end
-    else
-      with sql do
-        try
-          Database := dm1.database;
-          Transaction := dm1.database.DefaultUpdateTransaction;
-          dm1.updateTransact.StartTransaction;
-          SQL.Text := 'UPDATE addresmain set chec = 0 where rez =' + dm1.townINC.AsString;
-          ExecQuery;
-        finally
-          Free;
-        end;
-    dm1.updateTransact.Commit;
-    dm1.addresmain.ReopenLocate('inc');
-  end;
-  if sCheckBox13.Checked then
-    sCheckBox13.Caption := 'Снять выделение со всех адресов'
+    dm1.addresmain.Edit;
+    dm1.addresmainREPAIR.AsInteger := 1;
+    dm1.addresmain.Post;
+  end
   else
-    sCheckBox13.Caption := 'Выделить все адреса';
+  begin
+    dm1.addresmain.Edit;
+    dm1.addresmainREPAIR.AsInteger := 0;
+    dm1.addresmain.Post;
+  end;
 end;
 
 procedure TForm1.sCheckBox14Click(Sender: TObject);
@@ -4077,18 +4151,18 @@ end;
 
 procedure TForm1.sDBRadioGroup1Exit(Sender: TObject);
 begin
- if sDBRadioGroup1.ItemIndex = 0 then
-    begin
-      dm1.addresmain.Edit;
-      dm1.addresmainREZHIM.AsInteger := 0;
-      dm1.addresmain.Post;
-    end
+  if sDBRadioGroup1.ItemIndex = 0 then
+  begin
+    dm1.addresmain.Edit;
+    dm1.addresmainREZHIM.AsInteger := 0;
+    dm1.addresmain.Post;
+  end
   else
-    begin
-      dm1.addresmain.Edit;
-      dm1.addresmainREZHIM.AsInteger := 1;
-      dm1.addresmain.Post;
-    end;
+  begin
+    dm1.addresmain.Edit;
+    dm1.addresmainREZHIM.AsInteger := 1;
+    dm1.addresmain.Post;
+  end;
 end;
 
 procedure TForm1.sEdit1KeyPress(Sender: TObject; var Key: Char); //Поиск счетчика
@@ -4096,7 +4170,6 @@ begin
   if key = #13 then
     sBitBtn54Click(self); //нажатие кнопки найти
 end;
-
 
 //Смена закладок в окне данных о счетчиках
 
@@ -4182,7 +4255,6 @@ begin
     FormatFloat('00', timeOpr div 60) + ':' + FormatFloat('00', timeOpr mod 60))));
   //  sLabel18.Caption := FormatFloat('00', timeOpr div 3600) + ':' + FormatFloat('00', timeOpr div 60) + ':' + FormatFloat('00', timeOpr mod 60);
 end;
-
 
 procedure TForm1.TownBoxExit(Sender: TObject);
 begin
@@ -4281,18 +4353,17 @@ begin
 
     if versPO < 46 then
     begin
-     Add('ALTER TABLE ADDRESMAIN ADD REPAIR INTEGER');
-     Add('ALTER TABLE ADDRESMAIN ADD BALANS VARCHAR(40)');
+      Add('ALTER TABLE ADDRESMAIN ADD REPAIR INTEGER');
+      Add('ALTER TABLE ADDRESMAIN ADD BALANS VARCHAR(40)');
     end;
 
     if versPO < 47 then
     begin
-     Add('ALTER TABLE KONCEN ADD IP_ADDRES VARCHAR(15)');
-     Add('ALTER TABLE ADDRESMAIN ADD REZHIM INTEGER DEFAULT 0');
-     Add('UPDATE ADDRESMAIN SET REZHIM = 0');
-     //Add('UPDATE TMP SET "PASSWORD" = 500001');
+      Add('ALTER TABLE KONCEN ADD IP_ADDRES VARCHAR(15)');
+      Add('ALTER TABLE ADDRESMAIN ADD REZHIM INTEGER DEFAULT 0');
+      Add('UPDATE ADDRESMAIN SET REZHIM = 0');
+      //Add('UPDATE TMP SET "PASSWORD" = 500001');
     end;
-
 
   end;
 

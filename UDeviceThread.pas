@@ -131,6 +131,7 @@ type
     flagModem: Boolean;
     flagGPRS: Boolean;
     flagSetGPRSApn: Boolean;
+    flagSecondRead: Boolean;
 
     procedure IncEditNum(handle: HWND);
     procedure BlokGlOkna;
@@ -3643,10 +3644,19 @@ begin
         Chtenie
       else
       begin
-        for i := 0 to 1 do
+        // ≈сли разрешено дочитывание счетчиков, то выполн€етс€ втора€ попытка
+        if flagSecondRead then
         begin
-          if i >= 1 then
-            Sleep(15000);
+          for i := 0 to 1 do
+          begin
+            if i >= 1 then
+              Sleep(15000);
+            ProgrNaChtenie; //ѕрограмирование концентраторов на чтение
+            Chtenie;
+          end;
+        end
+        else
+        begin
           ProgrNaChtenie; //ѕрограмирование концентраторов на чтение
           Chtenie;
         end;

@@ -190,11 +190,11 @@ object FormOptions: TFormOptions
         Width = 331
         Height = 344
         Align = alClient
-        PageIndex = 5
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
         SkinData.SkinSection = 'CHECKBOX'
+        ExplicitLeft = 0
         object TPage
           Left = 0
           Top = 0
@@ -273,7 +273,7 @@ object FormOptions: TFormOptions
               TabOrder = 1
               SkinData.SkinSection = 'GROUPBOX'
               object sCheckBox2: TsCheckBox
-                Left = 3
+                Left = 16
                 Top = 15
                 Width = 181
                 Height = 20
@@ -285,7 +285,7 @@ object FormOptions: TFormOptions
                 ImgUnchecked = 0
               end
               object sCheckBox3: TsCheckBox
-                Left = 3
+                Left = 16
                 Top = 37
                 Width = 200
                 Height = 20
@@ -297,7 +297,7 @@ object FormOptions: TFormOptions
                 ImgUnchecked = 0
               end
               object sCheckBox7: TsCheckBox
-                Left = 3
+                Left = 16
                 Top = 58
                 Width = 168
                 Height = 20
@@ -309,7 +309,7 @@ object FormOptions: TFormOptions
                 ImgUnchecked = 0
               end
               object sCheckBox9: TsCheckBox
-                Left = 3
+                Left = 16
                 Top = 81
                 Width = 167
                 Height = 20
@@ -321,7 +321,7 @@ object FormOptions: TFormOptions
                 ImgUnchecked = 0
               end
               object sCheckBox10: TsCheckBox
-                Left = 3
+                Left = 16
                 Top = 102
                 Width = 213
                 Height = 20
@@ -380,7 +380,7 @@ object FormOptions: TFormOptions
               TabOrder = 3
               SkinData.SkinSection = 'GROUPBOX'
               object sCheckBox8: TsCheckBox
-                Left = 17
+                Left = 16
                 Top = 15
                 Width = 244
                 Height = 20
@@ -1027,7 +1027,7 @@ object FormOptions: TFormOptions
             end
             object sCheckBox4: TsCheckBox
               Left = 16
-              Top = 160
+              Top = 153
               Width = 108
               Height = 20
               Caption = #1042#1077#1089#1090#1080' '#1083#1086#1075' '#1086#1073#1084#1077#1085#1072
@@ -1074,6 +1074,20 @@ object FormOptions: TFormOptions
               MaxValue = 3000
               MinValue = 300
               Value = 2500
+            end
+            object schkSecondRead: TsCheckBox
+              Left = 16
+              Top = 127
+              Width = 273
+              Height = 20
+              Caption = #1056#1072#1079#1088#1077#1096#1080#1090#1100' '#1076#1086#1095#1080#1090#1099#1074#1072#1085#1080#1077' '#1085#1077#1089#1095#1080#1090#1072#1085#1085#1099#1093' '#1089#1095#1077#1090#1095#1080#1082#1086#1074
+              Checked = True
+              State = cbChecked
+              TabOrder = 3
+              OnClick = sCheckBox4Click
+              SkinData.SkinSection = 'CHECKBOX'
+              ImgChecked = 0
+              ImgUnchecked = 0
             end
           end
         end
@@ -1160,8 +1174,8 @@ object FormOptions: TFormOptions
             TabOrder = 0
             SkinData.SkinSection = 'PANEL'
             object sEdit4: TsEdit
-              Left = 97
-              Top = 77
+              Left = 96
+              Top = 12
               Width = 64
               Height = 24
               Font.Charset = DEFAULT_CHARSET
@@ -1185,29 +1199,6 @@ object FormOptions: TFormOptions
               BoundLabel.Layout = sclLeft
               BoundLabel.MaxWidth = 0
               BoundLabel.UseSkinColor = True
-            end
-            object sRadioGroup3: TsRadioGroup
-              Left = 24
-              Top = 15
-              Width = 289
-              Height = 56
-              Caption = ' '#1056#1077#1078#1080#1084' '#1088#1072#1073#1086#1090#1099' '
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -13
-              Font.Name = 'Tahoma'
-              Font.Style = []
-              ParentBackground = False
-              ParentFont = False
-              TabOrder = 1
-              Visible = False
-              SkinData.SkinSection = 'GROUPBOX'
-              Columns = 2
-              ItemIndex = 0
-              Items.Strings = (
-                'CSD'
-                'GPRS')
-              OnChanging = sRadioGroup3Changing
             end
           end
         end

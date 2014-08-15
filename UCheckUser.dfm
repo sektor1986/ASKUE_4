@@ -3,8 +3,8 @@ object FormCheckUser: TFormCheckUser
   Top = 249
   BorderStyle = bsNone
   Caption = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100
-  ClientHeight = 276
-  ClientWidth = 260
+  ClientHeight = 361
+  ClientWidth = 341
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,16 +20,21 @@ object FormCheckUser: TFormCheckUser
   object sPanel1: TsPanel
     Left = 0
     Top = 0
-    Width = 260
-    Height = 276
+    Width = 341
+    Height = 361
     Align = alClient
     ParentBackground = False
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
+    ExplicitWidth = 718
+    ExplicitHeight = 435
+    DesignSize = (
+      341
+      361)
     object sRadioGroup1: TsRadioGroup
       Left = 22
       Top = 16
-      Width = 209
+      Width = 297
       Height = 105
       Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       ParentBackground = False
@@ -44,19 +49,22 @@ object FormCheckUser: TFormCheckUser
     end
     object sBitBtn1: TsBitBtn
       Left = 22
-      Top = 234
+      Top = 322
       Width = 75
       Height = 25
+      Anchors = [akLeft, akBottom]
       TabOrder = 2
       OnClick = sBitBtn1Click
       Kind = bkCancel
       SkinData.SkinSection = 'BUTTON'
+      ExplicitTop = 282
     end
     object sBitBtn2: TsBitBtn
-      Left = 156
-      Top = 234
+      Left = 244
+      Top = 322
       Width = 75
       Height = 25
+      Anchors = [akLeft, akBottom]
       Caption = 'OK'
       Default = True
       TabOrder = 1
@@ -81,35 +89,8 @@ object FormCheckUser: TFormCheckUser
       NumGlyphs = 2
       SkinData.SkinSection = 'BUTTON'
     end
-    object sGroupBox1: TsGroupBox
-      Left = 22
-      Top = 163
-      Width = 209
-      Height = 54
-      Caption = #1055#1091#1090#1100' '#1082' '#1073#1072#1079#1077' '#1076#1072#1085#1085#1099#1093
-      ParentBackground = False
-      TabOrder = 4
-      CaptionLayout = clTopCenter
-      SkinData.SkinSection = 'GROUPBOX'
-      object sSpeedButton1: TsSpeedButton
-        Left = 11
-        Top = 16
-        Width = 185
-        Height = 28
-        Margin = 5
-        NumGlyphs = 2
-        ParentShowHint = False
-        ShowHint = True
-        Spacing = 10
-        OnClick = sSpeedButton1Click
-        OnMouseMove = sSpeedButton1MouseMove
-        Alignment = taLeftJustify
-        SkinData.SkinSection = 'SPEEDBUTTON'
-        TextAlignment = taLeftJustify
-      end
-    end
     object sEdit1: TsEdit
-      Left = 64
+      Left = 102
       Top = 136
       Width = 121
       Height = 21
@@ -135,5 +116,161 @@ object FormCheckUser: TFormCheckUser
       BoundLabel.MaxWidth = 0
       BoundLabel.UseSkinColor = True
     end
+    object rgb1: TsRadioGroup
+      Left = 24
+      Top = 163
+      Width = 295
+      Height = 42
+      Caption = #1057#1077#1088#1074#1077#1088
+      ParentBackground = False
+      TabOrder = 4
+      OnClick = rgb1Click
+      SkinData.SkinSection = 'GROUPBOX'
+      Columns = 2
+      ItemIndex = 0
+      Items.Strings = (
+        #1051#1086#1082#1072#1083#1100#1085#1099#1081
+        #1059#1076#1072#1083#1077#1085#1085#1099#1081)
+    end
+    object grp1: TsGroupBox
+      Left = 22
+      Top = 211
+      Width = 297
+      Height = 100
+      Caption = #1055#1091#1090#1100' '#1089#1077#1088#1074#1077#1088#1072
+      ParentBackground = False
+      TabOrder = 5
+      Visible = False
+      SkinData.SkinSection = 'GROUPBOX'
+      object edt1: TsEdit
+        Left = 112
+        Top = 16
+        Width = 145
+        Height = 21
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        SkinData.SkinSection = 'EDIT'
+        BoundLabel.Active = True
+        BoundLabel.Caption = #1048#1084#1103' '#1089#1077#1088#1074#1077#1088#1072' '#1041#1044
+        BoundLabel.Indent = 15
+        BoundLabel.Font.Charset = DEFAULT_CHARSET
+        BoundLabel.Font.Color = clBlack
+        BoundLabel.Font.Height = -11
+        BoundLabel.Font.Name = 'Tahoma'
+        BoundLabel.Font.Style = []
+        BoundLabel.Layout = sclLeft
+        BoundLabel.MaxWidth = 0
+        BoundLabel.UseSkinColor = True
+      end
+      object edt2: TsEdit
+        Left = 112
+        Top = 43
+        Width = 145
+        Height = 21
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = '3050'
+        SkinData.SkinSection = 'EDIT'
+        BoundLabel.Active = True
+        BoundLabel.Caption = #1055#1086#1088#1090' '#1089#1077#1088#1074#1077#1088#1072' '#1041#1044
+        BoundLabel.Indent = 10
+        BoundLabel.Font.Charset = DEFAULT_CHARSET
+        BoundLabel.Font.Color = clBlack
+        BoundLabel.Font.Height = -11
+        BoundLabel.Font.Name = 'Tahoma'
+        BoundLabel.Font.Style = []
+        BoundLabel.Layout = sclLeft
+        BoundLabel.MaxWidth = 0
+        BoundLabel.UseSkinColor = True
+      end
+      object edt3: TsEdit
+        Left = 112
+        Top = 70
+        Width = 145
+        Height = 21
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        SkinData.SkinSection = 'EDIT'
+        BoundLabel.Active = True
+        BoundLabel.Caption = #1060#1072#1081#1083' '#1073#1072#1079#1099
+        BoundLabel.Indent = 42
+        BoundLabel.Font.Charset = DEFAULT_CHARSET
+        BoundLabel.Font.Color = clBlack
+        BoundLabel.Font.Height = -11
+        BoundLabel.Font.Name = 'Tahoma'
+        BoundLabel.Font.Style = []
+        BoundLabel.Layout = sclLeft
+        BoundLabel.MaxWidth = 0
+        BoundLabel.UseSkinColor = True
+      end
+    end
+    object grp2: TsGroupBox
+      Left = 22
+      Top = 210
+      Width = 297
+      Height = 100
+      Caption = #1055#1091#1090#1100' '#1082' '#1073#1072#1079#1077
+      ParentBackground = False
+      TabOrder = 6
+      SkinData.SkinSection = 'GROUPBOX'
+      object btnSBFileBase: TsSpeedButton
+        Left = 261
+        Top = 44
+        Width = 23
+        Height = 25
+        Caption = '...'
+        OnClick = btnSBFileBaseClick
+        SkinData.SkinSection = 'SPEEDBUTTON'
+      end
+      object edtFileBase: TsEdit
+        Left = 17
+        Top = 44
+        Width = 238
+        Height = 21
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        SkinData.SkinSection = 'EDIT'
+        BoundLabel.Active = True
+        BoundLabel.Caption = #1044#1080#1088#1077#1082#1090#1086#1088#1080#1103' '#1041#1044
+        BoundLabel.Indent = 5
+        BoundLabel.Font.Charset = DEFAULT_CHARSET
+        BoundLabel.Font.Color = clBlack
+        BoundLabel.Font.Height = -11
+        BoundLabel.Font.Name = 'Tahoma'
+        BoundLabel.Font.Style = []
+        BoundLabel.Layout = sclTopLeft
+        BoundLabel.MaxWidth = 0
+        BoundLabel.UseSkinColor = True
+      end
+    end
+  end
+  object dlg1: TsOpenDialog
+    Filter = #1060#1072#1081#1083' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093' FireBird|*.fdb'
+    Left = 289
+    Top = 12
   end
 end

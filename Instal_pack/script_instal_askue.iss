@@ -13,7 +13,7 @@ DefaultDirName={pf}\ASKUE VZEP 4
 DefaultGroupName=ASKUE VZEP 4
 AllowNoIcons=yes
 OutputDir=e:\sektor\GIT_project\ASCUE_4\Instal_pack\
-OutputBaseFilename=ASKUE VZEP 4.0.0.48
+OutputBaseFilename=ASKUE VZEP 4.0.0.49
 
 SetupIconFile=e:\sektor\GIT_project\ASCUE_4\Release\vzep.ico
 Compression=lzma
@@ -40,6 +40,7 @@ Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\ASKUE VZEP"; Filen
 
 [Run]
 Filename: "{app}\ASKUE_VZEP.exe"; Description: "{cm:LaunchProgram,ASKUE VZEP}"; Flags: nowait postinstall skipifsilent
+
 
 
 

@@ -174,7 +174,7 @@ object FormOpr: TFormOpr
       end
     end
     object sBitBtn2: TsBitBtn
-      Left = 126
+      Left = 128
       Top = 454
       Width = 115
       Height = 36

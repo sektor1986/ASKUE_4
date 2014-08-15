@@ -81,8 +81,8 @@ type
     sBitBtn5: TsBitBtn;
     sPanel10: TsPanel;
     sEdit4: TsEdit;
-    sRadioGroup3: TsRadioGroup;
     sCheckBox11: TsCheckBox;
+    schkSecondRead: TsCheckBox;
     procedure sCheckBox1Click(Sender: TObject);
     procedure sBitBtn2Click(Sender: TObject);
     procedure sBitBtn3Click(Sender: TObject);
@@ -189,13 +189,13 @@ begin
   sCheckBox9.Checked := IniFile.ReadBool('Options', 'PoleLatitude', false);
   sCheckBox9.Checked := IniFile.ReadBool('Options', 'PoleLongitude', false);
   sCheckBox10.Checked := IniFile.ReadBool('Options', 'PoleBalans', false);
+  schkSecondRead.Checked := IniFile.ReadBool('Options', 'SecondRead', false);
   sComboBox1.ItemIndex := IniFile.ReadInteger('Options', 'IndexSkin', 0);
   sSpinEdit1.Value := IniFile.ReadInteger('Options', 'CountDozvon1', 3);
   sSpinEdit4.Value := IniFile.ReadInteger('Options', 'CountDozvon2', 3);
   sRadioGroup1.ItemIndex := IniFile.ReadInteger('Options', 'server', 0);
   sEditFileBase.Text := IniFile.ReadString('Options', 'base', '');
   sEdit4.Text := IniFile.ReadString('Options', 'Port_TCP/IP', '');
-  sRadioGroup3.ItemIndex := IniFile.ReadInteger('Options', 'rezhim', 0);
 
   if sRadioGroup1.ItemIndex = 1 then
     if sEditFileBase.Text <> '' then

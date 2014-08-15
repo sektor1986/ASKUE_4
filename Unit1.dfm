@@ -60,9 +60,9 @@ object Form1: TForm1
       end>
     SkinData.SkinSection = 'TOOLBAR'
     object sToolBar1: TsToolBar
-      Left = 12
+      Left = 11
       Top = 0
-      Width = 998
+      Width = 1003
       Height = 21
       AutoSize = True
       ButtonHeight = 21
@@ -79,13 +79,13 @@ object Form1: TForm1
         Caption = #1050#1086#1085#1094#1077#1085#1090#1088#1072#1090#1086#1088
       end
       object ToolButton2: TToolButton
-        Left = 117
+        Left = 126
         Top = 0
         Action = ActionSchitivatel
         Caption = #1057#1095#1080#1090#1099#1074#1072#1090#1077#1083#1100
       end
       object ToolButton3: TToolButton
-        Left = 234
+        Left = 252
         Top = 0
         Width = 8
         Caption = 'ToolButton3'
@@ -93,13 +93,13 @@ object Form1: TForm1
         Style = tbsSeparator
       end
       object ToolButton4: TToolButton
-        Left = 242
+        Left = 260
         Top = 0
         Action = ActionDannieSoSchetchikov
         Caption = #1044#1072#1085#1085#1099#1077' '#1089#1086' '#1089#1095#1077#1090#1095#1080#1082#1086#1074
       end
       object ToolButton5: TToolButton
-        Left = 359
+        Left = 386
         Top = 0
         Action = ActionPrint
       end
@@ -122,7 +122,6 @@ object Form1: TForm1
     Width = 1018
     Height = 654
     Align = alClient
-    PageIndex = 1
     TabOrder = 1
     OnPageChanged = nbPageChanged
     SkinData.SkinSection = 'CHECKBOX'
@@ -916,26 +915,73 @@ object Form1: TForm1
           DesignSize = (
             796
             36)
-          object sCheckBox13: TsCheckBox
-            Left = 12
-            Top = 2
-            Width = 229
-            Height = 19
-            Caption = #1042#1099#1076#1077#1083#1080#1090#1100' '#1074#1089#1077' '#1072#1076#1088#1077#1089#1072
-            AutoSize = False
+          object btn4: TsSpeedButton
+            Left = 398
+            Top = 1
+            Width = 127
+            Height = 33
+            Caption = #1042#1099#1073#1088#1072#1090#1100' '#1089#1086' '#13#10#1089#1074#1103#1079#1100#1102' GPRS'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
+            Font.Color = clGreen
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
-            TabOrder = 0
-            OnClick = sCheckBox13Click
-            AnimatEvents = [aeMouseEnter, aeMouseLeave, aeMouseDown]
-            SkinData.SkinSection = 'CHECKBOX'
-            ImgChecked = 0
-            ImgUnchecked = 0
-            ShowFocus = False
+            OnClick = btn4Click
+            SkinData.CustomFont = True
+            SkinData.SkinSection = 'SPEEDBUTTON'
+          end
+          object btn5: TsSpeedButton
+            Left = 268
+            Top = 1
+            Width = 127
+            Height = 33
+            Caption = #1042#1099#1073#1088#1072#1090#1100' c'#1086' '#13#10#1089#1074#1103#1079#1100#1102' CSD'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlue
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            OnClick = btn5Click
+            SkinData.CustomFont = True
+            SkinData.SkinSection = 'SPEEDBUTTON'
+          end
+          object btn6: TsSpeedButton
+            Left = 8
+            Top = 1
+            Width = 127
+            Height = 33
+            Caption = #1042#1099#1073#1088#1072#1090#1100' '#1074#1089#1077' '#1072#1076#1088#1077#1089#1072
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            OnClick = btn6Click
+            SkinData.CustomFont = True
+            SkinData.SkinSection = 'SPEEDBUTTON'
+            ImageIndex = 31
+            Images = ImageList1
+          end
+          object btn7: TsSpeedButton
+            Left = 138
+            Top = 1
+            Width = 127
+            Height = 33
+            Caption = #1059#1073#1088#1072#1090#1100' '#1074#1099#1073#1086#1088' '#1089' '#1072#1076#1088#1077#1089#1086#1074
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            OnClick = btn7Click
+            SkinData.CustomFont = True
+            SkinData.SkinSection = 'SPEEDBUTTON'
+            ImageIndex = 40
+            Images = ImageList1
           end
           object Button1: TButton
             Left = 716
@@ -950,7 +996,7 @@ object Form1: TForm1
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
-            TabOrder = 1
+            TabOrder = 0
             OnClick = Button1Click
           end
         end
@@ -6879,7 +6925,7 @@ object Form1: TForm1
   object ImageList1: TImageList
     Left = 500
     Bitmap = {
-      494C010136003800880010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101360038008C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000E0000000010020000000000000E0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -9062,7 +9108,7 @@ object Form1: TForm1
   object ImageList2: TImageList
     Left = 232
     Bitmap = {
-      494C010128002A000C0010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C010128002A00100010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000B0000000010020000000000000B0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10518,7 +10564,8 @@ object Form1: TForm1
       F81F8001FC3FC003F81F8001F83FC003F81F8001F000C003C0038001E000C003
       80018001C000C003800180018000C003800180018000C00380018001C000C003
       C0038001E000C003F81F8001F000C003F81F8001F83FC003F81F8001FC3FC003
-      FC3F8001FE3FC003FFFFFFFFFFFFC003}
+      FC3F8001FE3FC003FFFFFFFFFFFFC00300000000000000000000000000000000
+      000000000000}
   end
   object sSaveDialog1: TsSaveDialog
     Left = 280
@@ -10607,7 +10654,7 @@ object Form1: TForm1
     FlowControl.ControlRTS = rtsDisable
     FlowControl.XonXoffOut = False
     FlowControl.XonXoffIn = False
-    Left = 32
-    Top = 104
+    Left = 120
+    Top = 71
   end
 end
