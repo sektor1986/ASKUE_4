@@ -79,13 +79,13 @@ object Form1: TForm1
         Caption = #1050#1086#1085#1094#1077#1085#1090#1088#1072#1090#1086#1088
       end
       object ToolButton2: TToolButton
-        Left = 126
+        Left = 117
         Top = 0
         Action = ActionSchitivatel
         Caption = #1057#1095#1080#1090#1099#1074#1072#1090#1077#1083#1100
       end
       object ToolButton3: TToolButton
-        Left = 252
+        Left = 234
         Top = 0
         Width = 8
         Caption = 'ToolButton3'
@@ -93,13 +93,13 @@ object Form1: TForm1
         Style = tbsSeparator
       end
       object ToolButton4: TToolButton
-        Left = 260
+        Left = 242
         Top = 0
         Action = ActionDannieSoSchetchikov
         Caption = #1044#1072#1085#1085#1099#1077' '#1089#1086' '#1089#1095#1077#1090#1095#1080#1082#1086#1074
       end
       object ToolButton5: TToolButton
-        Left = 386
+        Left = 359
         Top = 0
         Action = ActionPrint
       end
@@ -122,6 +122,7 @@ object Form1: TForm1
     Width = 1018
     Height = 654
     Align = alClient
+    PageIndex = 8
     TabOrder = 1
     OnPageChanged = nbPageChanged
     SkinData.SkinSection = 'CHECKBOX'
@@ -6925,7 +6926,7 @@ object Form1: TForm1
   object ImageList1: TImageList
     Left = 500
     Bitmap = {
-      494C0101360038008C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010136003800900010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000E0000000010020000000000000E0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -9108,7 +9109,7 @@ object Form1: TForm1
   object ImageList2: TImageList
     Left = 232
     Bitmap = {
-      494C010128002A00100010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010128002A00140010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000B0000000010020000000000000B0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

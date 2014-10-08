@@ -4,3 +4,8 @@
 *.~*
 *.7z
 *.dll
+*.identcache
+*.dsk
+*.dcu
+/Instal_pack/*
+!/Instal_pack/script_instal_askue.iss
